@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>User Registration Form</title>
+</head>
+<body>    
+  
+        <table align='center' border="1" width="800px">
+                         <tr>           
+                            <th> <img src="logo.png" width=160px height=100px align="left">
+                                <p align='right'><a href="Public_Home.html" align='right';>Home</a> |
+                                <a href="LOGIN.php" align='right';>Login</a> |
+                                <a href="REGISTRATION.html" aslign='right';>Registration</a> </p>
+        
+                            </th>
+                            
+                        </tr> 
+                    
+                        <tr>
+                        <td height=400px;>
+                            
+                            <fieldset>
+
+                                <legend><b> Registration  </b></legend>
+                                 <form method="POST" action="registrationCheck.php">
+                                    Name  : <input type ="text" name="name" width="200px" > </input><br><hr>
+                                    Email  : <input type ="email" name="email"> </input><br><hr>
+                    
+                                    Username  : <input type ="text" name="uname"> </input><br><hr>
+                                    Password  : <input type ="text"name="upassword"> </input><br><hr>
+                                    Confirm Password  : <input type ="text"name="cpassword"> </input><br><hr>
+                    
+                    
+                            <fieldset>
+                                <legend>Gender</legend>
+                                <input type="radio"  name="gender" value="Male">Male
+                                <input type="radio" name="gender" value="Female">Female
+                                <input type="radio" name="gender" value="Others"> Others <br> <br>
+                                            
+                            </fieldset><hr>
+                    
+                            <fieldset>
+                                <legend>Date Of Birth</legend>
+                                DD  <input type="text" width="80px" name="day" value="" > 
+                                MM  <input type="text" name="month" value="">
+                                YY  <input type="text" name="year" value=""> <br> <br>
+                                            
+                            </fieldset>
+                                <br> <br><hr>
+                                            <input type="submit" name="submit" value="Submit">
+                                            <input type="reset">
+                            </fieldset>
+                            </form>
+                        </td>
+                    </tr>
+                   
+        
+                    <td colspan="3">
+                        <h5 style="text-align: center;">Copyright  @2021</h5>
+                    </td>
+        </table>
+    
+    
+</body>
+</html>
