@@ -20,11 +20,11 @@
                             <td height =200px>   Account <br>
                             <hr>
                             <ul type ='dish'>
-                             <li><a href= "DASHBOARD.php"> Dashboard </a></li>
-                             <li><a href= "VIEW_PROFILE.php"> View Profile </a></li>
-                             <li><a href= "EDIT_PROFILE.php"> Edit Profile </a></li>
-                             <li><a href= "PROFILE_PICTURE.php"> Change Profile Picture </a></li>
-                             <li><a href= "CHANGE_PASSWORD.php"> Change Password </a></li>
+                             <li><a href= "dashboard.php"> Dashboard </a></li>
+                             <li><a href= "ViewProfile.php"> View Profile </a></li>
+                             <li><a href= "EditProfile.php"> Edit Profile </a></li>
+                             <li><a href= "ProfilePicture.php"> Change Profile Picture </a></li>
+                             <li><a href= "ChangePassword.php"> Change Password </a></li>
                              <li><a href= "LOGIN.php">Logout </a></li>
 
                             </ul>
