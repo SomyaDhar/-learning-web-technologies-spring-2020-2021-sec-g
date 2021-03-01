@@ -23,7 +23,7 @@
                              <li><a href= "dashboard.php"> Dashboard </a></li>
                              <li><a href= "ViewProfile.php"> View Profile </a></li>
                              <li><a href= "EditProfile.php"> Edit Profile </a></li>
-                             <li><a href= "ProfilePicture.php"> Change Profile Picture </a></li>
+                             <li><a href= "Profile_Picture.php"> Change Profile Picture </a></li>
                              <li><a href= "ChangePassword.php"> Change Password </a></li>
                              <li><a href= "LOGIN.php">Logout </a></li>
 
