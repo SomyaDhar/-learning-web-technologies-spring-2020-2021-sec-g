@@ -1,6 +1,9 @@
 <?php
 	$title = "User List Page";
+	session_start();
+	$_SESSION['flag'] = true;
 	include('header.php');
+	
 ?>
 
 	<a href="home.php">Back</a> |
@@ -16,33 +19,36 @@
 			<td>EMAIL</td>
 			<td>ACTION</td>
 		</tr>
-		<tr>
-			<td>1</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=1"> EDIT</a> |
-				<a href="delete.php?id=1"> DELETE</a>
-			</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=2"> EDIT</a> |
-				<a href="delete.html"> DELETE</a>
-			</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=3"> EDIT</a> |
-				<a href="delete.html"> DELETE</a>
-			</td>
-		</tr>
+		<?php
+
+		$userArr = file_get_contents('../model/arr_list.json');
+		$userArr = json_decode($userArr);
+		foreach($userArr as $user)
+		{
+			
+			echo "<tr>";
+			
+			
+				 echo "<td>"; echo $user->username;  echo "</td>";
+				 echo "<td>"; echo $user->username;  echo "</td>";
+				 echo "<td>"; echo $user->email; echo "</td>"; 
+			echo '
+			
+				<td>
+					<a href="edit.php?id=1"> EDIT</a> |
+					<a href="delete.php?id=1"> DELETE</a>
+				</td>
+			</tr>
+			
+			
+			';
+
+		}	
+
+		?>
+
+		
+		
 	</table>
 
 <?php
