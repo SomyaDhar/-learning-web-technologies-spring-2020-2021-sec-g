@@ -3,7 +3,7 @@
 	session_start();
 
 	if(isset($_POST['submit'])){
-		$userArr = file_get_contents('../model/arr_list.json');
+		$userArr = file_get_contents('../model/user.json');
         $userArr = json_decode($users);
 
 		$username = $_POST['username'];
@@ -15,7 +15,7 @@
 
 			foreach($userArr as $user)
             {
-                if($user->username == $username && $user->password == $password){
+                if($user->Id == $username && $user->password == $password){
                     echo "Logged in";
 					$_SESSION['flag'] = true;
                     break;
@@ -24,7 +24,7 @@
             }			
 			if($_SESSION['flag'] == true){
 				
-				header('location: ../view/home.php');
+				header('location: ../view/user_home.php');
 			}else{
 				echo "invalid user...";
 			}

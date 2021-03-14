@@ -1,0 +1,25 @@
+[{
+	"Id" 	: 1,
+	"name"	: "shomyo",
+	"email"	: "shomyo@aiub.edu",
+	"role"	: "admin",
+	"password": 123
+}, 
+
+{
+	"Id" 	: 2,
+	"name"	: "jhon",
+	"email"	: "sfghgfghf@aiub.edu",
+	"role"	: "admin",
+	"password" :  123
+},
+
+{
+	"Id" 	: 3,
+	"name"	: "moon",
+	"email"	: "moon@aiub.edu",
+	"role"	: "user",
+	"password" :  123
+}
+
+]
