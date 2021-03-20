@@ -33,13 +33,13 @@
 			echo "<td>"; echo $row['username'];  echo "</td>";
 			echo "<td>"; echo $row['username'];  echo "</td>";
 			echo "<td>"; echo $row['email'];     echo "</td>"; 
-	    	echo '
+	    	echo "
 	   
 		   <td>
-			   <a href="edit.php?id=1"> EDIT</a> |
-			   <a href="delete.php?id=1"> DELETE</a>
+			   <a href='edit.php?id={$row['username']}'> EDIT</a> |
+			   <a href='../controller/user_delete.php?id={$row['username']}'> DELETE</a>
 		   </td>
-	  		 </tr>';
+	  		 </tr>";
         }	
 
 		?>
