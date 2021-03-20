@@ -3,30 +3,47 @@
 	session_start();
 
 	if(isset($_POST['submit'])){
-		$userArr = file_get_contents('../model/arr_list.json');
-        $userArr = json_decode($users);
+
+		$path= mysqli_connect('localhost','root','','web_user_mgt');
+        $sql="select * from userlist";
+        $result= mysqli_query($path,$sql);
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		if($username == "" || $password == ""){
+		if($username == "" || $password == "")
+		{
 			echo "null input...";
-		}else{
+		}
+		else
+		{
 
-			foreach($userArr as $user)
-            {
-                if($user->username == $username && $user->password == $password){
-                    echo "Logged in";
-					$_SESSION['flag'] = true;
-                    break;
-                }
+			
+			while ($row = mysqli_fetch_assoc($result))
+        {
+           
+                    if ($row['name']==$name && $row['password']==$password )
+                    {
+						echo "Logged in";
+                        $_SESSION['flag'] = true;
+                        break;
+                    }
+                    
+                   
+                 
                 
-            }			
-			if($_SESSION['flag'] == true){
+
+            }
+						
+			if($_SESSION['flag'] == true)
+			{
 				
 				header('location: ../view/home.php');
-			}else{
+			}
+			else
+			{
 				echo "invalid user...";
+				header('location: ../view/login.html');
 			}
 		}
 	}
