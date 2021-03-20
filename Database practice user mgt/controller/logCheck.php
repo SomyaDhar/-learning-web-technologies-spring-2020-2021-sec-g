@@ -20,9 +20,9 @@
 
 			
 			while ($row = mysqli_fetch_assoc($result))
-        {
+        	{
            
-                    if ($row['name']==$name && $row['password']==$password )
+                    if ($row['username']==$username && $row['password']==$password )
                     {
 						echo "Logged in";
                         $_SESSION['flag'] = true;
