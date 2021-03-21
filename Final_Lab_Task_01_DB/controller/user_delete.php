@@ -5,8 +5,5 @@
 
     $status = deleteUser($id);
 
-    
-
-
     header('location: ../view/user_list.php');
 ?>

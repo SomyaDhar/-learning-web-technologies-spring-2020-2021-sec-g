@@ -3,24 +3,28 @@
 	include('header.php');
 
 	echo $_GET['id'];
+	$id=$_GET['id'];
+	require_once('../model/userModel.php');
+
+	$row = getUserbyId($id);
 ?>
 
-	<form method="post" action="../controller/update.php">
+	<form method="post" action="../controller/update.php?id=<?php echo $id; ?>">
 		<fieldset>
 			<legend>EDIT User</legend>
 			<table>
 				<tr>
 					<td>Username</td>
-					<td><input type="text" name="username" value="alamin"></td>
+					<td><input type="text" name="username" value="<?php echo $row['username']; ?>"></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" value="123"></td>
+					<td><input type="password" name="password" value="<?php echo $row['password']; ?>"></td>
 				</tr>
 				
 				<tr>
 					<td>Email</td>
-					<td><input type="email" name="email" value="alamin@aiub.edu"></td>
+					<td><input type="email" name="email" value="<?php echo $row['email']; ?>"></td>
 				</tr>
 				<tr>
 					<td></td>

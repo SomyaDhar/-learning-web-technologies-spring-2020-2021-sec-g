@@ -32,7 +32,7 @@ function insertUser($user){
 function getUserbyId($id){
 	
 	$conn = getConnection();
-	$sql = "select * from users where id='{$id}";
+	$sql = "select * from users where id='{$id}'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
 
@@ -51,9 +51,9 @@ function getAllUser(){
 	return $users;
 }
 
-function updateUser($user){
+function updateUser($user,$id1){
 	$conn = getConnection();
-	$sql = "update users set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}', type='{$user['type']}'";
+	$sql = "update users set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}', type='{$user['type']}' where id='{$id1}'";
 	$result = mysqli_query($conn, $sql);
 	
 	if($result){
@@ -65,7 +65,7 @@ function updateUser($user){
 
 function deleteUser($id){
 	$conn = getConnection();
-	$sql = "delete from users where id='{$id}";
+	$sql = "delete from users where id={$id}";
 	$result = mysqli_query($conn, $sql);
 	
 	if($result){

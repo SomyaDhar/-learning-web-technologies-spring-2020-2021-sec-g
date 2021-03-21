@@ -1,8 +1,9 @@
 <?php
 	$title = "User List Page";
-	session_start();
-	$_SESSION['flag'] = true;
 	include('header.php');
+
+	$_SESSION['flag'] = true;
+	
 	
 ?>
 
@@ -17,15 +18,14 @@
 			<td>ID</td>
 			<td>NAME</td>
 			<td>EMAIL</td>
+			<td>TYPE</td>
 			<td>Action</td>
 		</tr>
 		<?php
 
-		$path= mysqli_connect('localhost','root','','web_user_mgt');
-    	$sql="select * from userlist";
-       	$result= mysqli_query($path,$sql);
+		require_once('../model/userModel.php');
 
-		$userArr=  getAllUser()
+		$userArr=  getAllUser();
 
 		foreach($userArr as $user)
 		{
@@ -33,19 +33,20 @@
 			echo "<tr>";
 			
 			
-				 echo "<td>"; echo $user->id;  echo "</td>";
-				 echo "<td>"; echo $user->username;  echo "</td>";
-				 echo "<td>"; echo $user->email; echo "</td>"; 
-			echo '
+				 echo "<td>"; echo $user['id'];  echo "</td>";
+				 echo "<td>"; echo $user['username'];  echo "</td>";
+				 echo "<td>"; echo $user['email']; echo "</td>"; 
+				 echo "<td>"; echo $user['type']; echo "</td>"; 
+				 echo "
+	   
+				 <td>
+					 <a href='edit.php?id={$user['id']}'> EDIT</a> |
+					 <a href='../controller/user_delete.php?id={$user['id']}'> DELETE</a>
+				 </td>
+					 </tr>";
 			
-				<td>
-					<a href="edit.php?id=1"> EDIT</a> |
-					<a href="delete.php?id=1"> DELETE</a>
-				</td>
-			</tr>
 			
 			
-			';
 
 		}	
 
