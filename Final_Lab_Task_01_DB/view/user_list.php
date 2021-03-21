@@ -1,6 +1,9 @@
 <?php
 	$title = "User List Page";
+	session_start();
+	$_SESSION['flag'] = true;
 	include('header.php');
+	
 ?>
 
 	<a href="home.php">Back</a> |
@@ -14,35 +17,42 @@
 			<td>ID</td>
 			<td>NAME</td>
 			<td>EMAIL</td>
-			<td>ACTION</td>
+			<td>Action</td>
 		</tr>
-		<tr>
-			<td>1</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=1"> EDIT</a> |
-				<a href="delete.php?id=1"> DELETE</a>
-			</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=2"> EDIT</a> |
-				<a href="delete.html"> DELETE</a>
-			</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=3"> EDIT</a> |
-				<a href="delete.html"> DELETE</a>
-			</td>
-		</tr>
+		<?php
+
+		$path= mysqli_connect('localhost','root','','web_user_mgt');
+    	$sql="select * from userlist";
+       	$result= mysqli_query($path,$sql);
+
+		$userArr=  getAllUser()
+
+		foreach($userArr as $user)
+		{
+			
+			echo "<tr>";
+			
+			
+				 echo "<td>"; echo $user->id;  echo "</td>";
+				 echo "<td>"; echo $user->username;  echo "</td>";
+				 echo "<td>"; echo $user->email; echo "</td>"; 
+			echo '
+			
+				<td>
+					<a href="edit.php?id=1"> EDIT</a> |
+					<a href="delete.php?id=1"> DELETE</a>
+				</td>
+			</tr>
+			
+			
+			';
+
+		}	
+
+		?>
+
+		
+		
 	</table>
 
 <?php
