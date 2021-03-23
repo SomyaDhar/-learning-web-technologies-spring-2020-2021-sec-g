@@ -1,0 +1,30 @@
+<?php
+        require_once('../Model/db.php');
+        require_once('../Model/userModel.php');
+        if(isset($_POST["submit"]))
+        {
+            $name=$_POST["name"];
+            $buy=$_POST["buyiPrice"];
+            $sell=$_POST["sellPrice"]; 
+            $display=$_POST["displayable"];
+            
+            $product = [
+                'name'=>$name ,
+                'buyPrice'=>$buy,
+                'sellPrice'=>$sell,
+                'displayable'=>$display
+                
+                 ];
+            $status= insertProduct($product);
+            if($status)
+            {
+                header('location: ../View/display.php');
+            }
+            else{
+                echo "error..try again";
+            }
+            
+            
+        }
+
+?>

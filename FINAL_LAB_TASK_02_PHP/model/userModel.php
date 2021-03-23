@@ -15,9 +15,9 @@ function validateUser($username, $password){
 	}
 }
 
-function insertUser($user){
+function insertProduct($product){
 	$conn = getConnection();
-	$sql = "insert into users values('', '{$user['username']}', '{$user['password']}', '{$user['email']}', '{$user['type']}')";
+	$sql = "insert into users values('', '{$product['name']}', '{$product['buyPrice']}', '{$product['sellPrice']}', '{$product['displayable']}')";
 
 	$result = mysqli_query($conn, $sql);
 
