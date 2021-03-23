@@ -2,22 +2,11 @@
 	
 require_once('db.php');
 
-function validateUser($username, $password){
-	$conn = getConnection();
-	$sql = "select * from users where username='{$username}' and password='{$password}'";
-	$result = mysqli_query($conn, $sql);
-	$row = mysqli_fetch_assoc($result);
 
-	if(count($row) > 0){
-		return true;
-	}else{
-		return false;
-	}
-}
 
 function insertProduct($product){
 	$conn = getConnection();
-	$sql = "insert into users values('', '{$product['name']}', '{$product['buyPrice']}', '{$product['sellPrice']}', '{$product['displayable']}')";
+	$sql = "insert into products values('', '{$product['name']}', '{$product['buyPrice']}', '{$product['sellPrice']}','')";
 
 	$result = mysqli_query($conn, $sql);
 
@@ -39,10 +28,10 @@ function getUserbyId($id){
 	return $row;
 }
 
-function getAllUser(){
+function getAllproduct(){
 
 	$conn = getConnection();
-	$sql = "select * from users";
+	$sql = "select * from products";
 	$result = mysqli_query($conn, $sql);
 	$users = [];
 	while ($row = mysqli_fetch_assoc($result)) {
@@ -63,9 +52,9 @@ function updateUser($user,$id1){
 	}
 }
 
-function deleteUser($id){
+function deleteProductr($id){
 	$conn = getConnection();
-	$sql = "delete from users where id={$id}";
+	$sql = "delete from products where id={$id}";
 	$result = mysqli_query($conn, $sql);
 	
 	if($result){

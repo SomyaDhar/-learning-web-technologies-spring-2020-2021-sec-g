@@ -1,10 +1,10 @@
 <?php
-        require_once('../Model/db.php');
+        //require_once('../Model/db.php');
         require_once('../Model/userModel.php');
         if(isset($_POST["submit"]))
         {
             $name=$_POST["name"];
-            $buy=$_POST["buyiPrice"];
+            $buy=$_POST["buyPrice"];
             $sell=$_POST["sellPrice"]; 
             $display=$_POST["displayable"];
             
@@ -18,7 +18,7 @@
             $status= insertProduct($product);
             if($status)
             {
-                header('location: ../View/display.php');
+                header('location: ../view/Add.php');
             }
             else{
                 echo "error..try again";

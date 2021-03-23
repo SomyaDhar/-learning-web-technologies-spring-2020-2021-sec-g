@@ -1,47 +1,42 @@
 <?php
 	$title = "User List Page";
-	include('header.php');
-
-	$_SESSION['flag'] = true;
 	
 	
 ?>
 
-	<a href="home.php">Back</a> |
-	<a href="../controller/logout.php">logout</a>	
-	<br>
+	<a href="Add.php">Back</a> |
 	
-	<h1>User list</h1>
+	<fieldset>
+
+        <legend><b> Display  </b></legend>
 
 	<table border="1">
 		<tr>
 			<td>ID</td>
 			<td>NAME</td>
-			<td>EMAIL</td>
-			<td>TYPE</td>
+			<td>Profit</td>
 			<td>Action</td>
 		</tr>
 		<?php
 
 		require_once('../model/userModel.php');
 
-		$userArr=  getAllUser();
+		$userArr=  getAllproduct();
 
 		foreach($userArr as $user)
 		{
 			
 			echo "<tr>";
 			
-			
+			$profit= $user['sellPrice']-$user['buyPrice'];
 				 echo "<td>"; echo $user['id'];  echo "</td>";
-				 echo "<td>"; echo $user['username'];  echo "</td>";
-				 echo "<td>"; echo $user['email']; echo "</td>"; 
-				 echo "<td>"; echo $user['type']; echo "</td>"; 
+				 echo "<td>"; echo $user['name'];  echo "</td>";
+				 echo "<td>"; echo $profit; echo "</td>"; 
 				 echo "
 	   
 				 <td>
 					 <a href='edit.php?id={$user['id']}'> EDIT</a> |
-					 <a href='../controller/user_delete.php?id={$user['id']}'> DELETE</a>
+					 <a href='../controller/delete.php?id={$user['id']}'> DELETE</a>
 				 </td>
 					 </tr>";
 			
@@ -55,6 +50,7 @@
 		
 		
 	</table>
+	</fieldset>
 
 <?php
 	include('footer.php');
